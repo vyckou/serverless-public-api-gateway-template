@@ -43,7 +43,7 @@ provider:
 functions:
     list:
       name: ${self:custom.lambda_name}-list
-      handler: resources/lambda.handler
+      handler: resources/list.handler
       memorySize: 128
       timeout: 10
       events:
@@ -56,7 +56,7 @@ functions:
       events:
         - http: get /contact/{id}
     add:
-      handler: resources/lambda.handler
+      handler: resources/add.handler
       name: ${self:custom.lambda_name}-add
       events:
         - http:
@@ -65,7 +65,7 @@ functions:
             cors: false
       update:
         name: ${self:custom.lambda_name}-update
-        handler: resources/lambda.handler
+        handler: resources/update.handler
         events:
           - http:
               path: /contact/{id}
@@ -73,7 +73,7 @@ functions:
               cors: false
       delete:
         name: ${self:custom.lambda_name}-delete
-        handler: resources/lambda.handler
+        handler: resources/delete.handler
         events:
           - http:
               path: /contact/{id}
